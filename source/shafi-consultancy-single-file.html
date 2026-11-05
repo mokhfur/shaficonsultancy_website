@@ -236,7 +236,7 @@ nav#mnav .sub a{font-size:.98rem;color:var(--mid)!important;padding:12px 0;white
 <div class="card"><h3>CDISC implementation</h3><p>Standards-compliant mapping, specifications and Define-XML for regulatory submission.</p><a href="#cdisc">Learn more</a></div>
 <div class="card"><h3>PK/PD and NONMEM</h3><p>Analysis-ready PK/PD datasets and NONMEM input files for pharmacometrics teams.</p><a href="#nonmem">Learn more</a></div>
 <div class="card"><h3>Clinical trial reporting</h3><p>Efficient, consistent TLF production for CSRs, DSMBs and publications.</p><a href="#contact">Learn more</a></div>
-<div class="card"><h3>Validation and QC</h3><p>Independent double programming and review against specifications and shells.</p><a href="#contact">Learn more</a></div>
+<div class="card"><h3>Validation and QC</h3><p>Independent double programming and review against specifications and shells.</p><a href="#validation-and-qc">Learn more</a></div>
 <div class="card"><h3>Custom tools and automation</h3><p>Reusable macros and utilities that cut repetitive work and shorten timelines.</p><a href="#contact">Learn more</a></div>
 </div></div></section>
 
@@ -422,6 +422,92 @@ document.getElementById('cfc').addEventListener('click',function(){t.select();tr
 <script>(function(){var m=document.getElementById('cr');if(!m)return;function go(){var els=m.querySelectorAll('.rv,.crph');if(!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in')});return}var o=new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');o.unobserve(x.target)}})},{threshold:.15});els.forEach(function(e){if(!e.classList.contains('in'))o.observe(e)})}
 window.addEventListener('hashchange',function(){setTimeout(go,60)});setTimeout(go,60);
 m.querySelectorAll('[data-scroll]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.getElementById(a.getAttribute('data-scroll'));if(t)t.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})})})})();</script>
+</main>
+<main id='vq' hidden>
+<style id="vqcss">
+#vq{--vqg:#1f8a4c}
+@media(prefers-color-scheme:dark){#vq{--vqg:#4cc38a}}
+:root[data-theme="dark"] #vq{--vqg:#4cc38a}
+#vq .eb{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:14px;display:block}
+#vq .vqh{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+#vq .vqsub{font-family:var(--serif);font-size:clamp(1.25rem,2.2vw,1.6rem);line-height:1.3;color:var(--ink);margin:6px 0 18px}
+#vq .vqp{font-size:1.05rem;line-height:1.7;color:var(--mid);margin:0 0 14px;text-align:justify}
+#vq .vqsv{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:34px}@media(max-width:980px){#vq .vqsv{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){#vq .vqsv{grid-template-columns:1fr}}
+#vq .vqsv .card{position:relative;padding-top:36px}
+#vq .vqsv .card b{position:absolute;top:14px;left:20px;font-family:var(--serif);font-size:15px;color:var(--red);letter-spacing:.04em}
+#vq .vqsv .card h3{margin-bottom:8px}
+#vq .vqsv .card:hover{transform:translateY(-4px);box-shadow:0 18px 36px -22px rgba(0,0,0,.35)}
+#vq .vqsv .card{transition:transform .3s ease,box-shadow .3s ease}
+#vq .vqclose{max-width:70ch;font-size:1.15rem;line-height:1.7;border-left:3px solid var(--red);padding-left:22px;color:var(--ink);margin:0}
+/* visual */
+#vq .vqv{background:var(--bg);border:1px solid var(--line);border-radius:8px;box-shadow:0 30px 60px -32px rgba(0,0,0,.35);overflow:hidden;font-family:var(--sans)}
+#vq .vqv-top{display:flex;align-items:center;gap:6px;padding:12px 16px;background:var(--alt);border-bottom:1px solid var(--line);font-size:12.5px;color:var(--ink)}
+#vq .vqv-top i{width:9px;height:9px;border-radius:50%;background:var(--line)}#vq .vqv-top i:first-child{background:var(--red)}
+#vq .vqv-top b{margin-left:8px;font-weight:600}#vq .vqv-top em{margin-left:auto;font-style:normal;font-size:11px;color:var(--mid);letter-spacing:.06em;text-transform:uppercase}
+#vq .vqv-g{display:grid;grid-template-columns:1.25fr 1fr 1fr 1.1fr;font-size:13px}
+#vq .vqv-g>div{padding:11px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;min-height:46px}
+#vq .vqv-g .hh{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);font-weight:600;background:var(--alt);min-height:36px}
+#vq .vqv-g .l{color:var(--ink)}
+#vq .vqv-g .c{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--ink);opacity:0;transform:translateY(6px);transition:opacity .45s ease,transform .45s cubic-bezier(.23,1,.32,1),background .4s,color .4s}
+#vq .vqv-g .c.on{opacity:1;transform:none}
+#vq .vqv-g .c.fix{background:rgba(31,138,76,.14);color:var(--vqg);font-weight:700}
+#vq .vqv-g .s{font-size:12px;font-weight:600;gap:6px}
+#vq .vqv-g .s span{display:inline-flex;align-items:center;gap:6px;opacity:0;transform:scale(.85);transition:opacity .35s ease,transform .35s cubic-bezier(.34,1.56,.64,1)}
+#vq .vqv-g .s span.on{opacity:1;transform:none}
+#vq .vqv-g .s .m{color:var(--vqg)}#vq .vqv-g .s .x{color:var(--red)}
+#vq .vqv-g .s svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+#vq .vqv-g .rowx.flag{background:rgba(214,57,52,.09)}
+#vq .vqv-g .flag.pulse{animation:vqp 1s ease 2}
+@keyframes vqp{50%{background:rgba(214,57,52,.2)}}
+#vq .vqv-st{display:grid;grid-template-columns:repeat(5,1fr);gap:0;list-style:none;margin:0;padding:18px 10px 6px;counter-reset:s}
+#vq .vqv-st li{position:relative;text-align:center;font-size:11px;line-height:1.3;color:var(--mid);padding-top:34px;transition:color .4s}
+#vq .vqv-st li::before{counter-increment:s;content:counter(s);position:absolute;top:0;left:50%;transform:translateX(-50%);width:26px;height:26px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--line);background:var(--bg);font-weight:600;font-size:12px;color:var(--mid);transition:all .4s;z-index:1}
+#vq .vqv-st li::after{content:"";position:absolute;top:12px;left:calc(-50% + 13px);right:calc(50% + 13px);height:2px;background:var(--line);transition:background .5s}
+#vq .vqv-st li:first-child::after{display:none}
+#vq .vqv-st li.on{color:var(--ink)}
+#vq .vqv-st li.on::before{background:var(--red);border-color:var(--red);color:#fff}
+#vq .vqv-st li.on::after{background:var(--red)}
+#vq .vqv-st li.fin::before{background:var(--vqg);border-color:var(--vqg)}
+#vq .vqv-ok{margin:10px 16px 16px;padding:11px 14px;border-radius:6px;border:1px dashed var(--line);font-size:13px;font-weight:600;color:var(--mid);display:flex;align-items:center;justify-content:center;gap:8px;transition:all .5s}
+#vq .vqv-ok svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+#vq .vqv-ok.on{border:1px solid var(--vqg);color:var(--vqg);background:rgba(31,138,76,.1)}
+#vq .rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+#vq .rv.in{opacity:1;transform:none}
+@media(max-width:860px){#vq .vqh{grid-template-columns:1fr;gap:32px}#vq .vqv-g{font-size:12px}#vq .vqv-g>div{padding:10px 8px}}
+@media(prefers-reduced-motion:reduce){#vq .rv,#vq .vqv-g .c,#vq .vqv-g .s span,#vq .vqsv .card{transition:none!important;transform:none!important;opacity:1!important}#vq .vqv-g .flag.pulse{animation:none}}
+</style>
+<section class='nmh'><div class='w vqh'><div><span class='eb rv'>Validation and QC</span><h1 class='rv'>Validation and QC</h1><p class='vqsub rv' style='--d:.1s'>Independent Validation. Confidence in Every Deliverable.</p><p class='vqp rv' style='--d:.15s'>Ensure the accuracy, consistency, and reliability of your clinical trial programming outputs with Shafi Consultancy’s independent validation and quality control (QC) services.</p><p class='vqp rv' style='--d:.2s'>Our experienced statistical programmers perform independent double programming and systematic reviews of programs, outputs, specifications, and shells to help identify discrepancies before deliverables are finalised. We verify that tables, listings, figures (TLFs), and analysis datasets align with approved specifications and expected results.</p><div class='cta rv' style='--d:.25s'><a class='btn' href='#contact' data-open>Contact our team</a></div></div><div class="vqv rv" id="vqv" role="img" aria-label="Animated illustration of double programming: a production output and an independent QC output are compared line by line, one discrepancy is logged, resolved and revalidated, and all outputs are verified"><div class="vqv-top"><i></i><i></i><i></i><b>Table 14.2.1 · Independent double programming</b><em>Illustrative</em></div><div class="vqv-g" aria-hidden="true"><div class="hh">Output</div><div class="hh">Production</div><div class="hh">Independent QC</div><div class="hh">Result</div><div class="l rowx r1">Subjects (ITT), n</div><div class="c rowx r1" data-s="a">248</div><div class="c rowx r1" data-s="b">248</div><div class="s rowx r1"><span class="m"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Match</span><span class="x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Mismatch</span></div><div class="l rowx r2">Mean change</div><div class="c rowx r2" data-s="a">-4.2</div><div class="c rowx r2" data-s="b">-4.2</div><div class="s rowx r2"><span class="m"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Match</span><span class="x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Mismatch</span></div><div class="l rowx r3">p-value</div><div class="c rowx r3" data-s="a">0.031</div><div class="c rowx r3" data-s="b">0.031</div><div class="s rowx r3"><span class="m"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Match</span><span class="x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Mismatch</span></div><div class="l rowx r4">AEs, n</div><div class="c rowx r4" data-s="a">37</div><div class="c rowx r4" data-s="b">36</div><div class="s rowx r4"><span class="m"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Match</span><span class="x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Mismatch</span></div></div><ol class="vqv-st" aria-hidden="true"><li>Double program</li><li>Compare</li><li>Log discrepancy</li><li>Resolve</li><li>Revalidate</li></ol><div class="vqv-ok" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span>Awaiting comparison</span></div></div></div></section>
+<section class='alt'><div class='w'><h2 class='rv'>Our validation and QC services include:</h2><div class='vqsv'><div class='card rv' style='--d:0.00s'><b>01</b><h3>Independent Double Programming</h3><p>Independently develop programs to verify results and identify potential discrepancies.</p></div><div class='card rv' style='--d:0.08s'><b>02</b><h3>Program and Output Validation</h3><p>Review statistical programs and generated outputs against specifications, shells, and expected results.</p></div><div class='card rv' style='--d:0.16s'><b>03</b><h3>TLF Quality Control</h3><p>Check tables, listings, and figures for accuracy, consistency, completeness, and presentation requirements.</p></div><div class='card rv' style='--d:0.24s'><b>04</b><h3>Analysis Dataset QC</h3><p>Review analysis datasets for consistency with programming specifications and applicable derivation requirements.</p></div><div class='card rv' style='--d:0.32s'><b>05</b><h3>Discrepancy Reporting</h3><p>Document identified issues clearly to support investigation, resolution, and revalidation.</p></div></div></div></section>
+<section><div class='w'><p class='vqclose rv'>With a quality-focused approach and extensive experience in clinical statistical programming, Shafi Consultancy helps pharmaceutical companies and CROs strengthen confidence in their programming deliverables and support reliable clinical trial reporting.</p></div></section>
+<section class='ctaS'><div class='w'><h2>Need independent QC or validation support for your next study?</h2><p class='lede'>Contact our team to discuss your project requirements.</p><div class='cta'><a class='btn' href='#contact' data-open>Contact our team</a></div></div></section>
+<script>(function(){var m=document.getElementById('vq');if(!m)return;
+var v=document.getElementById('vqv'),T=[],run=false,rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+function q(s){return v.querySelectorAll(s)}function c(s){return v.querySelector(s)}
+var stp=q('.vqv-st li'),ok=c('.vqv-ok'),okt=ok.querySelector('span');
+function reset(){q('.c').forEach(function(e){e.classList.remove('on','fix')});q('.s span').forEach(function(e){e.classList.remove('on')});q('.rowx').forEach(function(e){e.classList.remove('flag','pulse')});stp.forEach(function(e){e.classList.remove('on','fin')});ok.classList.remove('on');okt.textContent='Awaiting comparison';c('.c.r4[data-s=b]').textContent='36'}
+function at(ms,f){T.push(setTimeout(f,ms))}
+function stop(){T.forEach(clearTimeout);T=[]}
+function fin(){q('.c').forEach(function(e){e.classList.add('on')});c('.c.r4[data-s=b]').textContent='37';c('.c.r4[data-s=b]').classList.add('fix');q('.s .m').forEach(function(e){e.classList.add('on')});stp.forEach(function(e){e.classList.add('on')});stp[4].classList.add('fin');ok.classList.add('on');okt.textContent='All outputs verified'}
+function play(){stop();reset();
+[1,2,3,4].forEach(function(i,k){at(400+k*220,function(){c('.c.r'+i+'[data-s=a]').classList.add('on')});at(1500+k*220,function(){c('.c.r'+i+'[data-s=b]').classList.add('on')})});
+at(300,function(){stp[0].classList.add('on')});
+at(2900,function(){stp[1].classList.add('on');okt.textContent='Comparing outputs'});
+[1,2,3].forEach(function(i,k){at(3100+k*320,function(){c('.s.r'+i+' .m').classList.add('on')})});
+at(4300,function(){c('.s.r4 .x').classList.add('on');q('.rowx.r4').forEach(function(e){e.classList.add('flag','pulse')})});
+at(5300,function(){stp[2].classList.add('on');okt.textContent='Discrepancy logged'});
+at(6700,function(){stp[3].classList.add('on');okt.textContent='Resolving discrepancy';var e=c('.c.r4[data-s=b]');e.textContent='37';e.classList.add('fix')});
+at(7900,function(){stp[4].classList.add('on');c('.s.r4 .x').classList.remove('on');c('.s.r4 .m').classList.add('on');q('.rowx.r4').forEach(function(e){e.classList.remove('flag','pulse')});okt.textContent='Revalidating'});
+at(8800,function(){stp[4].classList.add('fin');ok.classList.add('on');okt.textContent='All outputs verified'});
+at(13200,function(){if(run)play()})}
+function start(){if(run)return;run=true;if(rm){fin();return}play()}
+function halt(){run=false;stop()}
+var els=m.querySelectorAll('.rv');
+function revealAll(){els.forEach(function(e){e.classList.add('in')})}
+if('IntersectionObserver'in window){
+var vo=new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting)start();else halt()})},{threshold:.3});vo.observe(v);
+var ro=new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target)}})},{threshold:.15});els.forEach(function(e){ro.observe(e)})}
+else{revealAll();start()}
+})();</script>
 </main>
 
 <main id='nm' hidden>
@@ -837,8 +923,8 @@ m+=`<figure class='mp'>${s}</svg><figcaption>Subject ${j+1}${j==2?', flagged for
 document.getElementById('nmmini').innerHTML=m;
 function replay(){nm.querySelectorAll('.draw').forEach(function(e){e.classList.remove('draw');void e.getBoundingClientRect();e.classList.add('draw')})}
 var tm;function loop(){clearInterval(tm);if(!nm.hidden)tm=setInterval(function(){if(!document.hidden&&!matchMedia('(prefers-reduced-motion:reduce)').matches)replay()},5000)}
-function route(){var H=location.hash,on=H==='#nonmem',sp=H==='#_shafi-chowdhury',sc=document.getElementById('sc');document.getElementById('shp').src=document.querySelector('.pp img').src;var ai=H==='#_aminul-islam',ac=document.getElementById('ac');document.getElementById('aip').src=document.querySelectorAll('.pp img')[2].src;var pbv=H==='#publications',pv=document.getElementById('pb');var abv=H==='#About_Shafi_Consultancy'||H==='#team',spv=H==='#statistical-programming',crv=H==='#careers',prvv=H==='#privacy-policy',ckyv=H==='#cookie-policy',cdv=H==='#cdisc',gpv=H==='#good-programming-practice-guide',blv=H==='#blog',pov=H.indexOf('#post-')===0,pst=pov&&window.BLOG?window.BLOG.post(H.slice(6)):null;pov=!!pst;home.hidden=on||sp||ai||pbv||blv||pov||gpv||cdv||prvv||ckyv||crv||spv||abv;nm.hidden=!on;sc.hidden=!sp;ac.hidden=!ai;pv.hidden=!pbv;document.getElementById('bl').hidden=!blv;document.getElementById('bp').hidden=!pov;document.getElementById('gp').hidden=!gpv;document.getElementById('cd').hidden=!cdv;document.getElementById('prv').hidden=!prvv;document.getElementById('cr').hidden=!crv;document.getElementById('sp').hidden=!spv;document.getElementById('ab').hidden=!abv;document.getElementById('cky').hidden=!ckyv;document.title=on?'PKPD / NONMEM – Shafi Consultancy':sp?'Shafi Chowdhury, Managing Director – Shafi Consultancy':ai?'Aminul Islam, Team Leader – Shafi Consultancy':pbv?'Publications – Shafi Consultancy':blv?'Blog – Shafi Consultancy':gpv?'Quick Guide to Good Programming Practice – Shafi Consultancy':cdv?'CDISC – Shafi Consultancy':abv?'About Shafi Consultancy':spv?'Clinical Trial Statistical Programming Services – Shafi Consultancy':crv?'Careers – Shafi Consultancy':prvv?'Privacy Policy – Shafi Consultancy':ckyv?'Cookie Policy – Shafi Consultancy':pov?pst.t+' – Shafi Consultancy':T0;
-loop();if(on||sp||ai||pbv||blv||pov||gpv||cdv||prvv||ckyv||crv||spv||abv){if(H==='#team')document.getElementById('team').scrollIntoView();else window.scrollTo(0,0);if(on)replay()}else{var id=location.hash.slice(1),el=id&&document.getElementById(id);if(el)el.scrollIntoView();else window.scrollTo(0,0)}}
+function route(){var H=location.hash,on=H==='#nonmem',sp=H==='#_shafi-chowdhury',sc=document.getElementById('sc');document.getElementById('shp').src=document.querySelector('.pp img').src;var ai=H==='#_aminul-islam',ac=document.getElementById('ac');document.getElementById('aip').src=document.querySelectorAll('.pp img')[2].src;var pbv=H==='#publications',pv=document.getElementById('pb');var abv=H==='#About_Shafi_Consultancy'||H==='#team',spv=H==='#statistical-programming',crv=H==='#careers',vqv=H==='#validation-and-qc',prvv=H==='#privacy-policy',ckyv=H==='#cookie-policy',cdv=H==='#cdisc',gpv=H==='#good-programming-practice-guide',blv=H==='#blog',pov=H.indexOf('#post-')===0,pst=pov&&window.BLOG?window.BLOG.post(H.slice(6)):null;pov=!!pst;home.hidden=on||sp||ai||pbv||blv||pov||gpv||cdv||prvv||ckyv||crv||spv||abv||vqv;nm.hidden=!on;sc.hidden=!sp;ac.hidden=!ai;pv.hidden=!pbv;document.getElementById('bl').hidden=!blv;document.getElementById('bp').hidden=!pov;document.getElementById('gp').hidden=!gpv;document.getElementById('cd').hidden=!cdv;document.getElementById('prv').hidden=!prvv;document.getElementById('cr').hidden=!crv;document.getElementById('vq').hidden=!vqv;document.getElementById('sp').hidden=!spv;document.getElementById('ab').hidden=!abv;document.getElementById('cky').hidden=!ckyv;document.title=on?'PKPD / NONMEM – Shafi Consultancy':sp?'Shafi Chowdhury, Managing Director – Shafi Consultancy':ai?'Aminul Islam, Team Leader – Shafi Consultancy':pbv?'Publications – Shafi Consultancy':blv?'Blog – Shafi Consultancy':gpv?'Quick Guide to Good Programming Practice – Shafi Consultancy':cdv?'CDISC – Shafi Consultancy':abv?'About Shafi Consultancy':spv?'Clinical Trial Statistical Programming Services – Shafi Consultancy':crv?'Careers – Shafi Consultancy':vqv?'Validation and QC – Shafi Consultancy':prvv?'Privacy Policy – Shafi Consultancy':ckyv?'Cookie Policy – Shafi Consultancy':pov?pst.t+' – Shafi Consultancy':T0;
+loop();if(on||sp||ai||pbv||blv||pov||gpv||cdv||prvv||ckyv||crv||spv||abv||vqv){if(H==='#team')document.getElementById('team').scrollIntoView();else window.scrollTo(0,0);if(on)replay()}else{var id=location.hash.slice(1),el=id&&document.getElementById(id);if(el)el.scrollIntoView();else window.scrollTo(0,0)}}
 window.addEventListener('hashchange',route);route();
 })();
 </script>
