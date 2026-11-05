@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From raw clinical data to submission-ready deliverables</title>
+<!--
+  HOW TO USE ON THE WEBSITE
+  1. Copy everything between "EMBED START" and "EMBED END" (style, section, script) into the page.
+  2. It reads the site's colour and font variables (--red, --ink, --mid, --line, --alt, --bg, --serif, --sans) when they exist
+     and falls back to the Shafi brand colours when they don't, so it also works on its own.
+  3. It plays once when it scrolls into view, holds the finished picture, then replays quietly.
+     For visitors who prefer reduced motion it shows the finished picture straight away.
+-->
+<style>
+/* page wrapper for previewing this file on its own: not part of the embed */
+:root{--red:#d63934;--ink:#2b2a2a;--mid:#6b6a6a;--line:#e3e1e0;--alt:#f5f4f3;--bg:#fff;--serif:'Newsreader',Georgia,'Times New Roman',serif;--sans:'IBM Plex Sans',system-ui,Arial,sans-serif;color-scheme:light}
+@media(prefers-color-scheme:dark){:root{--red:#ee544e;--ink:#f1efee;--mid:#a9a7a6;--line:#363434;--alt:#201f1f;--bg:#171616;color-scheme:dark}}
+body{margin:0;background:var(--bg);font:400 17px/1.6 var(--sans);color:var(--mid)}
+.demo{max-width:1160px;margin:0 auto;padding:0 24px}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="demo">
+<!-- ===================== EMBED START ===================== -->
+<style>
+.pl{--pr:var(--red,#d63934);--pi:var(--ink,#2b2a2a);--pm:var(--mid,#6b6a6a);--pln:var(--line,#e3e1e0);--pa:var(--alt,#f5f4f3);--pb:var(--bg,#fff);
+--out:cubic-bezier(.23,1,.32,1);--inout:cubic-bezier(.77,0,.175,1);padding:72px 0;font-family:var(--sans,system-ui,Arial,sans-serif);color:var(--pm);line-height:1.6}
+.pl *{box-sizing:border-box}
+.pl h2{font:600 clamp(1.9rem,3.6vw,2.7rem)/1.12 var(--serif,Georgia,serif);color:var(--pi);margin:0;letter-spacing:-.01em}
+.pl .pl-lede{max-width:62ch;margin:14px 0 0;font-size:1.1rem}
+.pl ol,.pl ul{list-style:none;margin:0;padding:0}.pl p{margin:0}
+/* ---- layout: five columns, the track runs between the first and last node centres */
+.pl .pl-stg{position:relative;margin-top:52px;transition:opacity .4s var(--out)}
+.pl .pl-sts{display:grid;grid-template-columns:repeat(5,1fr)}
+.pl .pl-trk{position:absolute;left:10%;right:10%;top:0;height:44px;overflow:hidden;pointer-events:none}
+.pl .pl-trk::before,.pl .pl-run::before{content:'';position:absolute;left:0;right:0;top:20px;height:3px}
+.pl .pl-trk::before{background:var(--pln)}
+.pl .pl-run{position:absolute;inset:0;transform:translateX(-100%)}.pl .pl-run::before{background:var(--pr)}
+.pl .pl-run::after{content:'';position:absolute;right:-6px;top:16px;width:11px;height:11px;border-radius:50%;background:var(--pr);box-shadow:0 0 0 5px rgba(214,57,52,.2)}
+.pl .pl-st{position:relative;display:flex;flex-direction:column}
+.pl .pl-nd{position:relative;z-index:1;width:44px;height:44px;margin:0 auto}
+.pl .pl-nd b,.pl .pl-nd i{position:absolute;inset:0;border-radius:50%;display:grid;place-items:center;font:600 1rem/1 var(--sans,system-ui);font-style:normal}
+.pl .pl-nd b{background:var(--pb);border:2px solid var(--pln);color:var(--pm)}
+.pl .pl-nd i{background:var(--pr);color:#fff;opacity:1}
+.pl .pl-nd u{position:absolute;inset:0;border-radius:50%;border:2px solid var(--pr);opacity:0;text-decoration:none}
+.pl .pl-cd{flex:1;margin:26px 8px 0;padding:18px 18px 16px;background:var(--pa);border:1px solid var(--pln);border-radius:6px;display:flex;flex-direction:column;gap:12px}
+.pl .pl-cd h3{margin:0;font:600 1.2rem/1.2 var(--serif,Georgia,serif);color:var(--pi)}
+.pl .pl-cd p{font-size:.92rem;line-height:1.5}
+.pl .pl-viz{display:flex;flex-wrap:wrap;gap:7px;align-content:flex-start;min-height:92px}
+.pl .pl-chip{display:inline-block;padding:5px 10px;font:500 .78rem/1.2 ui-monospace,Menlo,Consolas,monospace;color:var(--pi);background:var(--pb);border:1px solid var(--pln);border-radius:4px;transform:rotate(var(--rot,0deg))}
+.pl .pl-chip.pl-s{border-color:var(--pr)}
+.pl .pl-tbl{display:grid;gap:6px;width:100%}.pl .pl-bar{height:9px;border-radius:2px;background:var(--pln);transform-origin:left center}
+.pl .pl-bar:first-child{background:var(--pr);opacity:.85}
+.pl .pl-cht{width:100%;height:46px;display:block}.pl .pl-cht path{fill:none;stroke:var(--pr);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.pl .pl-cht line{stroke:var(--pln);stroke-width:1.5}
+.pl .pl-ck{display:grid;gap:7px;width:100%}.pl .pl-ck li{display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--pi)}
+.pl .pl-ck svg{flex:none;width:16px;height:16px;fill:none;stroke:var(--pr);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.pl .pl-seal{align-self:flex-start;padding:5px 12px;border-radius:99px;background:var(--pr);color:#fff;font-weight:600;font-size:.8rem}
+.pl .pl-qc{align-self:flex-start;margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:500;color:var(--pi)}
+.pl .pl-qc svg{width:14px;height:14px;fill:none;stroke:var(--pr);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.pl .pl-qcr{margin-top:34px;border:1.5px dashed var(--pr);border-radius:6px;padding:12px 16px;text-align:center;color:var(--pi);font-weight:500}
+/* ---- before JS runs, or without JS, the finished picture is visible */
+.pl.pl-js .pl-a,.pl.pl-js .pl-nd i,.pl.pl-js .pl-qcr{opacity:0}
+.pl.pl-js .pl-bar{transform:scaleX(0)}.pl.pl-js .pl-cht path{stroke-dasharray:1;stroke-dashoffset:1}
+.pl.pl-out .pl-stg{opacity:0}
+/* ---- choreography. --t = the moment the pulse reaches a stage, --o = a chip's own offset */
+.pl.pl-play .pl-a{animation:pl-in .55s var(--out) calc(var(--t,0s) + var(--o,0s)) both}
+.pl.pl-play .pl-cd.pl-a{animation-delay:calc(var(--t) - .3s)}
+.pl.pl-play .pl-nd i{animation:pl-act .4s var(--out) var(--t) both}
+.pl.pl-play .pl-nd u{animation:pl-ring .9s var(--out) var(--t) both}
+.pl.pl-play .pl-run{animation:pl-run 6.72s linear .5s both}
+.pl.pl-play .pl-bar{animation:pl-grow .6s var(--inout) calc(var(--t) + var(--o,0s)) both}
+.pl.pl-play .pl-cht path{animation:pl-draw .9s var(--inout) calc(var(--t) + .5s) both}
+.pl.pl-play .pl-seal{animation:pl-in .5s var(--out) calc(var(--t) + 1.5s) both}
+.pl.pl-play .pl-qcr{animation:pl-fade .8s ease .2s both}
+@keyframes pl-in{from{opacity:0;transform:translateY(8px) rotate(var(--rot,0deg))}to{opacity:1;transform:translateY(0) rotate(var(--rot,0deg))}}
+@keyframes pl-fade{from{opacity:0}to{opacity:1}}
+@keyframes pl-act{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+@keyframes pl-ring{from{opacity:.5;transform:scale(1)}to{opacity:0;transform:scale(1.75)}}
+@keyframes pl-run{to{transform:translateX(0)}}
+@keyframes pl-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pl-draw{to{stroke-dashoffset:0}}
+/* ---- phones: the stages stack, each one draws its own connector */
+@media(max-width:860px){
+.pl{padding:56px 0}.pl .pl-stg{margin-top:36px}.pl .pl-sts{grid-template-columns:1fr}.pl .pl-trk{display:none}
+.pl .pl-st{display:grid;grid-template-columns:44px 1fr;column-gap:16px;align-items:start}
+.pl .pl-nd{margin:0}.pl .pl-cd{margin:0 0 28px}
+.pl .pl-st:not(:last-child)::before{content:'';position:absolute;left:20.5px;top:44px;bottom:0;width:3px;background:var(--pln)}
+.pl .pl-st:not(:last-child)::after{content:'';position:absolute;left:20.5px;top:44px;bottom:0;width:3px;background:var(--pr);transform-origin:top;transform:scaleY(0)}
+.pl.pl-play .pl-st:not(:last-child)::after{animation:pl-down 1s var(--inout) calc(var(--t) + .3s) both}
+.pl:not(.pl-js) .pl-st:not(:last-child)::after{transform:none}
+.pl .pl-viz{min-height:0}}
+@keyframes pl-down{to{transform:scaleY(1)}}
+/* ---- reduced motion: no travelling, the finished picture appears together */
+@media(prefers-reduced-motion:reduce){
+.pl.pl-js .pl-a,.pl.pl-js .pl-nd i,.pl.pl-js .pl-qcr{opacity:1;animation:none!important;transform:rotate(var(--rot,0deg))}
+.pl.pl-js .pl-bar{transform:none;animation:none!important}.pl.pl-js .pl-cht path{stroke-dashoffset:0;animation:none!important}
+.pl .pl-run,.pl .pl-nd u{animation:none!important;transform:none;opacity:0}.pl .pl-run{opacity:1}
+.pl .pl-st:not(:last-child)::after{transform:none!important;animation:none!important}.pl .pl-stg{transition:none}}
+</style>
+
+<section class="pl" aria-labelledby="pl-title">
+<h2 id="pl-title">From raw clinical data to submission-ready deliverables</h2>
+<p class="pl-lede">Every study follows the same traceable path, with independent quality control at each step.</p>
+
+<div class="pl-stg">
+<div class="pl-trk" aria-hidden="true"><div class="pl-run"></div></div>
+<ol class="pl-sts">
+
+<li class="pl-st" style="--t:.5s">
+<div class="pl-nd" aria-hidden="true"><b>1</b><u></u><i>1</i></div>
+<div class="pl-cd pl-a"><h3>Raw clinical data</h3><p>EDC, labs, ECG, ePRO and legacy data arrive in many different shapes.</p>
+<div class="pl-viz">
+<span class="pl-chip pl-a" style="--o:.05s;--rot:-3deg">EDC</span><span class="pl-chip pl-a" style="--o:.14s;--rot:2deg">Labs</span><span class="pl-chip pl-a" style="--o:.2s;--rot:-1deg">ECG</span>
+<span class="pl-chip pl-a" style="--o:.32s;--rot:3deg">ePRO</span><span class="pl-chip pl-a" style="--o:.4s;--rot:-2deg">PK</span><span class="pl-chip pl-a" style="--o:.46s;--rot:1deg">Legacy</span></div>
+<span class="pl-qc pl-a" style="--o:.9s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.500 4.500L19 7"/></svg>Data checked</span></div>
+</li>
+
+<li class="pl-st" style="--t:2.18s">
+<div class="pl-nd" aria-hidden="true"><b>2</b><u></u><i>2</i></div>
+<div class="pl-cd pl-a"><h3>SDTM</h3><p>Mapped to the standard domains, with specifications and issue tracking.</p>
+<div class="pl-viz">
+<span class="pl-chip pl-a" style="--o:.05s">DM</span><span class="pl-chip pl-a" style="--o:.1s">AE</span><span class="pl-chip pl-a" style="--o:.19s">LB</span>
+<span class="pl-chip pl-a" style="--o:.25s">VS</span><span class="pl-chip pl-a" style="--o:.36s">EX</span><span class="pl-chip pl-a" style="--o:.41s">CM</span></div>
+<span class="pl-qc pl-a" style="--o:.9s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.500 4.500L19 7"/></svg>QC checked</span></div>
+</li>
+
+<li class="pl-st" style="--t:3.86s">
+<div class="pl-nd" aria-hidden="true"><b>3</b><u></u><i>3</i></div>
+<div class="pl-cd pl-a"><h3>ADaM</h3><p>Analysis datasets derived with full traceability back to the source.</p>
+<div class="pl-viz">
+<span class="pl-chip pl-s pl-a" style="--o:.05s">ADSL</span><span class="pl-chip pl-s pl-a" style="--o:.15s">ADAE</span><span class="pl-chip pl-s pl-a" style="--o:.22s">ADLB</span><span class="pl-chip pl-s pl-a" style="--o:.34s">ADTTE</span></div>
+<span class="pl-qc pl-a" style="--o:.9s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.500 4.500L19 7"/></svg>QC checked</span></div>
+</li>
+
+<li class="pl-st" style="--t:5.54s">
+<div class="pl-nd" aria-hidden="true"><b>4</b><u></u><i>4</i></div>
+<div class="pl-cd pl-a"><h3>TLFs</h3><p>Tables, listings and figures produced and independently validated.</p>
+<div class="pl-viz">
+<div class="pl-tbl"><div class="pl-bar" style="--o:.05s"></div><div class="pl-bar" style="--o:.16s;width:82%"></div><div class="pl-bar" style="--o:.24s;width:92%"></div></div>
+<svg class="pl-cht" viewBox="0 0 160 46" aria-hidden="true"><line x1="2" y1="44" x2="158" y2="44"/><path pathLength="1" d="M4 38 C24 36 30 20 52 22 S84 34 104 16 S138 8 156 6"/></svg></div>
+<span class="pl-qc pl-a" style="--o:1.1s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.500 4.500L19 7"/></svg>Double programmed</span></div>
+</li>
+
+<li class="pl-st" style="--t:7.22s">
+<div class="pl-nd" aria-hidden="true"><b>5</b><u></u><i>5</i></div>
+<div class="pl-cd pl-a"><h3>Submission-ready</h3><p>Everything a reviewer needs, packaged for the regulator.</p>
+<ul class="pl-ck">
+<li class="pl-a" style="--o:.05s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.500 4.500L19 7"/></svg>aCRF</li>
+<li class="pl-a" style="--o:.2s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.500 4.500L19 7"/></svg>Define.XML</li>
+<li class="pl-a" style="--o:.3s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.500 4.500L19 7"/></svg>Data Reviewer’s Guide</li></ul>
+<span class="pl-seal pl-a">Submission-ready</span></div>
+</li>
+</ol>
+</div>
+
+<div class="pl-qcr">Independent quality control and validation at every stage</div>
+</section>
+
+<script>
+(function(){
+document.querySelectorAll('.pl').forEach(function(root){
+  root.classList.add('pl-js');
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){root.classList.add('pl-play');return}
+  var timers=[],vis=false;
+  function clear(){timers.forEach(clearTimeout);timers=[]}
+  function run(){
+    clear();root.classList.remove('pl-play','pl-out');void root.offsetWidth;root.classList.add('pl-play');
+    timers.push(setTimeout(function(){root.classList.add('pl-out')},14200));   /* ~8.5s run, then hold the finished picture */
+    timers.push(setTimeout(function(){if(vis&&!document.hidden)run();else{root.classList.remove('pl-out')}},14700));
+  }
+  new IntersectionObserver(function(es){
+    es.forEach(function(e){vis=e.isIntersecting;if(vis)run();else{clear();root.classList.remove('pl-out')}});
+  },{threshold:.15}).observe(root);
+  document.addEventListener('visibilitychange',function(){if(!document.hidden&&vis)run()});
+});
+})();
+</script>
+<!-- ====================== EMBED END ====================== -->
+</div>
+</body>
+</html>
