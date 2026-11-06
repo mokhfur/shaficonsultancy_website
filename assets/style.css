@@ -192,3 +192,8 @@ nav#mnav .btn{margin-top:18px;justify-content:center}}
 .dd:hover .sub,.dd:focus-within .sub{display:block}.sub a{display:block;padding:10px 20px;white-space:nowrap;font-size:.95rem}.sub a:hover{background:var(--alt)}
 @media(max-width:860px){.dd{padding:0;margin:0}.dd>a::after{display:none}nav#mnav .sub{display:block;position:static;border:0;box-shadow:none;border-radius:0;padding:0 0 4px 18px;min-width:0;background:none}
 nav#mnav .sub a{font-size:.98rem;color:var(--mid)!important;padding:12px 0;white-space:normal}nav#mnav .sub a:hover{background:none}nav#mnav .dd>a{border-bottom:0!important;padding-bottom:6px!important}}
+
+@media(min-width:861px){nav a:not(.btn){padding:9px 14px;margin:-9px -14px;border-radius:4px;transition:background-color .15s ease,color .15s ease}
+nav .sub a:not(.btn){margin:0;padding:10px 20px;border-radius:0}}
+@media(min-width:861px) and (hover:hover) and (pointer:fine){nav a:not(.btn):hover,nav a:not(.btn):focus-visible{background:var(--red);color:#fff}
+.sub a:hover{background:var(--red);color:#fff}}
