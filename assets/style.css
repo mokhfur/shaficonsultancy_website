@@ -60,6 +60,14 @@ footer{padding:34px 0;font-size:.9rem;border-top:1px solid var(--line)}footer .w
 header img,footer img{background:#fff;padding:3px 10px;border-radius:4px}
 dialog{border:0;border-radius:8px;padding:0;width:min(520px,calc(100% - 32px));max-height:calc(100% - 32px);background:var(--bg);color:var(--mid);box-shadow:0 24px 70px rgba(0,0,0,.35)}
 dialog::backdrop{background:rgba(20,18,18,.6)}
+dialog.thx{width:min(560px,calc(100% - 32px));text-align:center}
+dialog.thx .thx-in{padding:44px 36px 40px;border-top:4px solid var(--red);border-radius:8px}
+dialog.thx .thx-logo{height:46px;width:auto;margin:0 auto 26px;display:block}
+dialog.thx h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.8rem,5vw,2.4rem);line-height:1.15;color:var(--ink);margin:0 0 14px;letter-spacing:-.01em}
+dialog.thx h2{font-family:var(--sans);font-weight:700;font-size:1.1rem;line-height:1.35;color:var(--ink);margin:0 0 12px}
+dialog.thx p{font-weight:400;font-size:1rem;line-height:1.65;color:var(--mid);margin:0 0 28px}
+dialog.thx .btn{min-width:140px;justify-content:center}
+
 .dh{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:26px 28px 0}
 .dh button{background:none;border:0;font-size:1.8rem;line-height:1;color:var(--mid);cursor:pointer;padding:0 4px}
 #enqf,#enqok{padding:18px 28px 28px;display:grid;gap:14px}
