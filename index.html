@@ -24,20 +24,48 @@
 <p class="lede">Shafi Consultancy provides SDTM, ADaM and TLF programming to CROs and pharmaceutical sponsors worldwide. Lean teams, strict QC and submission-ready output.</p>
 <div class="cta"><a class="btn" href="/#contact-us" data-open="">Discuss your study</a><a class="btn o" href="/#services">View services</a></div>
 </div>
-<div class="term" role="img" aria-label="Illustration of SAS code producing validated datasets">
-<div class="bar"><i></i><i></i><i></i></div>
-<pre><span class="c">/* Raw EDC → SDTM → ADaM → TLF */</span>
-<span class="k">%macro</span> build_adae(study=ONC-102);
-  <span class="k">proc sql</span> noprint;
-    create table adam.adae as
-    select a.*, d.trtsdt, d.trtedt
-    from sdtm.ae a join adam.adsl d
-    on a.usubjid = d.usubjid;
-  <span class="k">quit</span>;
-  <span class="k">%qc_compare</span>(base=adam.adae, comp=qc.adae);
-<span class="k">%mend</span>;</pre>
-<div class="out"><span>SDTM <b>valid</b></span><span>ADaM <b>valid</b></span><span>QC compare <b>0 differences</b></span></div>
+<div id="hv" class="hv" role="img" aria-label="Animated illustration: SAS code runs, then a Kaplan-Meier survival curve and a forest plot draw in. Illustrative data.">
+ <div class="fit" id="hv-fit">
+  <div class="scene" id="hv-scene">
+    <div class="floor"></div>
+
+    <div class="pn" id="hv-code">
+      <div class="bar"><i></i><i></i><i></i><span>f_14_2_1_os_km.sas</span><em>SAS 9.4</em></div>
+      <pre id="hv-pre"></pre>
+    </div>
+
+    <div class="pn" id="hv-chart">
+      <div class="bar"><i></i><i></i><i></i><span>Figure 14.2.1  Kaplan-Meier, overall survival</span><em>illustrative</em></div>
+      <svg viewBox="0 0 630 296" role="img" aria-label="Animated Kaplan-Meier survival curves for treatment and control arms with a number-at-risk table">
+        <g id="hv-grid"></g>
+        <g id="hv-band" class="band"></g>
+        <path id="hv-ctl" class="curve" pathLength="1" stroke="#cfd6dc"/>
+        <path id="hv-trt" class="curve" pathLength="1" stroke="#e2433d"/>
+        <g id="hv-med" class="fade"></g>
+        <g id="hv-axes"></g>
+        <g id="hv-risk"></g>
+        <g transform="translate(70,170)"><rect width="140" height="44" rx="5" fill="#161414" stroke="#322e2e"/>
+          <line x1="12" x2="34" y1="16" y2="16" stroke="#e2433d" stroke-width="3"/><text x="42" y="20" class="t">Treatment</text>
+          <line x1="12" x2="34" y1="33" y2="33" stroke="#cfd6dc" stroke-width="3"/><text x="42" y="37" class="t">Control</text></g>
+      </svg>
+    </div>
+
+    <div class="pn" id="hv-forest">
+      <div class="bar"><i></i><i></i><i></i><span>Subgroup forest plot, hazard ratio</span><em>illustrative</em></div>
+      <svg viewBox="0 0 470 214" role="img" aria-label="Animated forest plot of hazard ratios by subgroup"><g id="hv-fp"></g></svg>
+    </div>
+
+    <div class="pn" id="hv-pipe">
+      <span class="chip" id="hv-p1">SDTM<small>tabulation</small></span><span class="arr">&rarr;</span>
+      <span class="chip" id="hv-p2">ADaM<small>analysis datasets</small></span><span class="arr">&rarr;</span>
+      <span class="chip" id="hv-p3">TLF<small>tables, listings, figures</small></span>
+    </div>
+
+    <div class="pn" id="hv-kpi"><b>HR 0.62</b><span>95% CI 0.48 to 0.80, log-rank p &lt; 0.001</span></div>
+  </div>
+ </div>
 </div>
+
 </div></section>
 
 <div class="cred"><div class="w cg">
