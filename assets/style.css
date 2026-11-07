@@ -271,3 +271,4 @@ p:has(>a.bk){margin-bottom:18px}
 .dsh{display:block;width:100%;height:auto;max-width:100%}.dsh text{font-family:'IBM Plex Sans',system-ui,sans-serif}.dsh .m{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace!important}.term.dshwrap,.dshwrap{background:none;border:0}
 @media(min-width:941px){.hg:has(.dshwrap){grid-template-columns:.97fr 1.03fr;gap:24px}.dshwrap{width:110%;margin-right:-10%;margin-left:-4%}}
 @media(min-width:601px){.g6 .card.s6:last-child{grid-column:span 3}}
+.tl:has(>div:nth-child(2):last-child){grid-template-columns:repeat(2,1fr)}
