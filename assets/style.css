@@ -209,3 +209,12 @@ nav .sub a:not(.btn){margin:0;padding:10px 20px;border-radius:0}}
 @media(prefers-reduced-motion:reduce){#services .card::before{transform:none;opacity:0;transition:opacity .2s ease}
 @media(hover:hover) and (pointer:fine){#services .card:hover::before{opacity:1}}
 #services .card:hover a::after{transform:none}}
+
+#impact .big{position:relative;display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em;background:linear-gradient(var(--red),var(--red)) 0 48% / 0 3px no-repeat}
+#impact .big::before,#impact .big::after{content:attr(data-text);position:absolute;left:0;top:0;white-space:nowrap;color:var(--red);opacity:0;pointer-events:none}
+#impact .big::before{clip-path:inset(0 0 50% 0);transform:translateX(-100%)}
+#impact .big::after{clip-path:inset(50% 0 0 0);transform:translateX(100%)}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+#impact .card:hover .big{color:transparent;animation:impLine .75s cubic-bezier(.23,1,.32,1) both}
+@keyframes impLine{0%{background-size:0 3px;background-position:0 48%}40%{background-size:100% 3px;background-position:0 48%}65%{background-size:100% 3px;background-position:0 48%}100%{background-size:0 3px;background-position:100% 48%}}
+#impact .card:hover .big::before,#impact .card:hover .big::after{opacity:1;transform:translateX(0);transition:transform .35s cubic-bezier(.23,1,.32,1) .25s,opacity 0s .25s}}
