@@ -24,19 +24,54 @@
 <div><h1>Clinical Trial Statistical Programming Services</h1>
 <p class="lede">Shafi Consultancy delivers end-to-end Phase I–IV statistical programming to pharmaceutical, biotech, and CRO sponsors across the UK, Europe, and North America. From raw EDC data conversion to CDISC SDTM, ADaM, ISS/ISE pooling, and CSR-ready Tables, Listings, and Figures (TLFs), you work directly with senior SAS specialists.</p>
 <div class="cta"><a class="btn" href="/#contact-us" data-open="">Discuss your study</a><a class="btn o" href="#engagement-models" id="spgo">Explore FSP &amp; delivery models</a></div></div>
-<div class="term" role="img" aria-label="Illustration of validated SAS TLF macro and double-programming QC log verification">
-<div class="bar"><i></i><i></i><i></i><span style="margin-left:auto;font-size:11.5px;color:#a9a7a6">t_14_3_1_teae.sas</span></div>
-<pre><span class="c">* Primary &amp; Independent QC TLF Pipeline *;</span>
-<span class="k">%tlf_ae_summary</span>(
-  inds   = adam.adae(where=(saffl=<span class="s">"Y"</span> and trtemfl=<span class="s">"Y"</span>)),
-  popds  = adam.adsl,
-  byvars = aebodsys aedecod,
-  trtvar = trt01an,
-  outds  = prod.t_14_3_1
-);
-<span class="k">PROC COMPARE</span> BASE=prod.t_14_3_1 COMPARE=qc.t_14_3_1;
-<span class="k">RUN</span>;</pre>
-<div class="out"><span>SAS Log <b>0 Errors / 0 Warnings</b></span><span>Double QC <b>Exact Match</b></span></div></div>
+<div class="dshwrap" role="img" aria-label="Animated illustration: SAS code cards stream data into a dashboard with a rising line graph and a 3D bar chart. Illustrative data."><svg class="dsh" id="dsh-s" viewBox="30 28 940 732" aria-hidden="true">
+ <defs>
+  <linearGradient id="dsh-gl" x1="0" x2="1"><stop offset="0" stop-color="#0d9488"/><stop offset="1" stop-color="#00d4ff"/></linearGradient>
+  <linearGradient id="dsh-ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00d4ff" stop-opacity=".35"/><stop offset="1" stop-color="#00d4ff" stop-opacity="0"/></linearGradient>
+  <linearGradient id="dsh-gh" x1="0" x2="1"><stop offset="0" stop-color="#0b2545"/><stop offset="1" stop-color="#13315c"/></linearGradient>
+  <filter id="dsh-glow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#00d4ff" flood-opacity=".38"/></filter>
+  <filter id="dsh-soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#0b2545" flood-opacity=".16"/></filter>
+  <filter id="dsh-dot" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="3"/></filter>
+ </defs>
+
+ <!-- ground tile -->
+ <g id="dsh-ground">
+  <polygon points="500,330 930,545 500,760 70,545" fill="#f1f8fb"/>
+  <polygon points="500,330 930,545 500,760 70,545" fill="none" stroke="#cfe7f1" stroke-width="2"/>
+  <polygon points="500,372 846,545 500,718 154,545" fill="none" stroke="#dcedf4" stroke-width="1.5" stroke-dasharray="5 7"/>
+ </g>
+
+ <!-- dashboard screen (face with normal +x) -->
+ <g filter="url(#dsh-soft)"><g id="dsh-panel" transform="matrix(.866,-.5,0,1,330,300)">
+  <rect x="-8" y="-8" width="396" height="266" rx="14" fill="#0b2545"/>
+  <rect x="0" y="0" width="380" height="250" rx="9" fill="#ffffff"/>
+  <path d="M0 9a9 9 0 0 1 9-9h362a9 9 0 0 1 9 9v25H0z" fill="url(#dsh-gh)"/>
+  <circle cx="16" cy="17" r="4" fill="#00d4ff"/><circle cx="30" cy="17" r="4" fill="#14b8a6"/><circle cx="44" cy="17" r="4" fill="#cfe7f1"/>
+  <text x="64" y="21" font-size="11" font-weight="600" fill="#fff" letter-spacing=".04em">STUDY DASHBOARD</text>
+  <g stroke="#e4f0f5" stroke-width="1"><line x1="16" x2="364" y1="62" y2="62"/><line x1="16" x2="364" y1="92" y2="92"/><line x1="16" x2="364" y1="122" y2="122"/><line x1="16" x2="364" y1="152" y2="152"/></g>
+  <path id="dsh-area" fill="url(#dsh-ga)" opacity="0"/>
+  <path id="dsh-line" fill="none" stroke="url(#dsh-gl)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  <circle id="dsh-tip" r="6" fill="#fff" stroke="#00d4ff" stroke-width="3" opacity="0"/>
+  <g id="dsh-kpis"></g>
+ </g></g>
+
+ <!-- data streams -->
+ <g id="dsh-flows" fill="none" stroke-linecap="round">
+  <path id="dsh-f1" d="M262 190 C 330 190, 330 300, 400 360" stroke="#00d4ff" stroke-width="2.5" stroke-dasharray="3 9" opacity=".75"/>
+  <path id="dsh-f2" d="M262 332 C 330 340, 360 490, 414 566" stroke="#14b8a6" stroke-width="2.5" stroke-dasharray="3 9" opacity=".75"/>
+  <path id="dsh-f3" d="M262 474 C 330 535, 370 600, 440 618" stroke="#00d4ff" stroke-width="2.5" stroke-dasharray="3 9" opacity=".75"/>
+ </g>
+ <g id="dsh-dots"></g>
+
+ <!-- 3D bar chart -->
+ <g id="dsh-bars" filter="url(#dsh-soft)"></g>
+
+ <!-- SAS cards (face with normal +y) -->
+ <g id="dsh-cards"></g>
+
+ <!-- medical icons -->
+ <g id="dsh-icons"></g>
+</svg></div>
 </div></div></section>
 <div class="cred"><div class="w cg">
 <div><strong>Since 2001</strong><span>25 years of clinical SAS delivery</span></div>

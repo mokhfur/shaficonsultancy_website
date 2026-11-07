@@ -268,3 +268,4 @@ p:has(>a.bk){margin-bottom:18px}
 @media (prefers-reduced-motion:reduce){.hv .floor{animation:none}.hv .caret{animation:none}}
 
 .hv #hv-kpi span{white-space:nowrap;display:block;margin-top:4px}
+.dsh{display:block;width:100%;height:auto;max-width:100%}.dsh text{font-family:'IBM Plex Sans',system-ui,sans-serif}.dsh .m{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace!important}.term.dshwrap,.dshwrap{background:none;border:0}
