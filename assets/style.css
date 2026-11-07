@@ -223,3 +223,5 @@ p:has(>a.bk){margin-bottom:18px}
 .cv{margin-top:34px}.cvr{display:grid;grid-template-columns:200px 1fr;gap:10px 40px;padding:26px 0;border-top:1px solid var(--line)}.cvd{font-weight:500;color:var(--red)}.cvr h3{font:600 1.25rem/1.3 var(--serif);margin:0}.cvc{color:var(--mid);margin:4px 0 12px}.cvr ul,.cv2 ul{margin:0;padding-left:20px}.cvr li,.cv2 li{margin:0 0 7px}
 .cv2{display:grid;grid-template-columns:1fr 1.4fr;gap:56px}.cv2 h3{font:600 1.1rem/1.3 var(--serif);margin:22px 0 10px}.cvr1{padding:14px 0;border-top:1px solid var(--line)}.cvr1 b{display:block}.cvr1 span{color:var(--mid)}
 @media(max-width:800px){.cvr{grid-template-columns:1fr;gap:6px}.cv2{grid-template-columns:1fr;gap:34px}}
+
+@media(min-width:701px){.tl:has(>div:nth-child(4)){grid-template-columns:repeat(4,1fr)}}
