@@ -277,3 +277,4 @@ p:has(>a.bk){margin-bottom:18px}
 #mc .lede,#mc .split>div>p{text-align:justify;text-justify:inter-word;hyphens:auto}
 .cred .cg>div{position:relative;padding-bottom:8px}.cred .cg strong{transition:color .3s ease,transform .35s cubic-bezier(.23,1,.32,1)}.cred .cg>div::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.23,1,.32,1)}@media(hover:hover) and (pointer:fine){.cred .cg>div:hover strong{color:var(--red);transform:translateY(-3px)}.cred .cg>div:hover::after{transform:scaleX(1)}}@media(prefers-reduced-motion:reduce){.cred .cg strong,.cred .cg>div::after{transition:none}}
 .cred .cg strong{font-size:25px}
+#impact .big::before,#impact .big::after{white-space:normal;right:0}
