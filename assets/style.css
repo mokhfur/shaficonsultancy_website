@@ -309,3 +309,5 @@ p:has(>a.bk){margin-bottom:18px}
 @media(prefers-reduced-motion:reduce){.dsx *{transition:none!important;animation:none!important}.dsx.rdy h2,.dsx.rdy li{opacity:1}.dsx.rdy li{transform:translateY(-50%)}.dsx.rdy .mn,.dsx.rdy .ld{stroke-dashoffset:0}.dsx.rdy .dt{transform:none}.dsx .pl{display:none}}
 
 #team .mgmt{margin-top:0;padding-top:0;border-top:0}
+
+.mapsil{fill:var(--red);fill-opacity:.1;stroke:var(--red);stroke-opacity:.45;stroke-width:1;stroke-linejoin:round}
