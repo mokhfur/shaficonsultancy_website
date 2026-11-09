@@ -293,7 +293,7 @@ p:has(>a.bk){margin-bottom:18px}
 .dsx.on li::before{display:none}
 .dsx .rg{fill:none;stroke:var(--line);stroke-width:1}.dsx .mn{fill:none;stroke:var(--red);stroke-width:2;stroke-linecap:round}
 .dsx .ld{stroke:var(--line);stroke-width:1.3}.dsx .dt{fill:var(--red)}
-.dsx .pl{fill:var(--red);opacity:.9}.dsx .ha{fill:none;stroke:var(--red);stroke-width:1.5;transform-box:fill-box;transform-origin:center;opacity:0;animation:dsha 3.2s infinite}
+.dsx .pl{opacity:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,.28))}.dsx .ha{fill:none;stroke:var(--red);stroke-width:1.5;transform-box:fill-box;transform-origin:center;opacity:0;animation:dsha 3.2s infinite}
 @keyframes dsha{0%{transform:scale(.4);opacity:.6}100%{transform:scale(1.6);opacity:0}}
 .dsx.rdy h2,.dsx.rdy li{opacity:0}.dsx.rdy li{transform:translate(18px,-50%)}
 .dsx.rdy .mn,.dsx.rdy .ld{stroke-dasharray:1;stroke-dashoffset:1}.dsx.rdy .dt{transform-box:fill-box;transform-origin:center;transform:scale(0)}.dsx.rdy .pl,.dsx.rdy .ha{display:none}
