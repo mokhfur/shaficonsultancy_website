@@ -227,13 +227,13 @@ p:has(>a.bk){margin-bottom:18px}
 
 @media(min-width:701px){.tl:has(>div:nth-child(4)){grid-template-columns:repeat(4,1fr)}}
 
-.hv{position:relative;overflow:hidden;border-radius:14px;background:radial-gradient(ellipse 70% 60% at 60% 35%,#2d1514 0%,#100f0f 72%);border:1px solid #2a2626;box-shadow:0 24px 50px rgba(0,0,0,.18);--panel:#1b1919;--panel2:#232020;--line:#322e2e;--hvink:#f4f0ee;--mute:#a59e9b;--red:#e2433d;--red2:#ff6b63;--hvmono:'IBM Plex Mono',ui-monospace,Menlo,monospace;color:var(--hvink)}
+.hv{position:relative;overflow:hidden;border-radius:14px;background:radial-gradient(ellipse 70% 60% at 60% 35%,#f8f7f6 0%,#e9e7e5 75%);border:1px solid #dcd8d5;box-shadow:0 24px 50px rgba(0,0,0,.08);--panel:#1b1919;--panel2:#232020;--line:#322e2e;--hvink:#f4f0ee;--mute:#a59e9b;--red:#e2433d;--red2:#ff6b63;--hvmono:'IBM Plex Mono',ui-monospace,Menlo,monospace;color:var(--hvink)}
 .hv *{box-sizing:border-box}
 .hv .fit{position:absolute;left:0;top:0;width:640px;height:548px;transform-origin:0 0;perspective:1500px;perspective-origin:50% 45%}
 .hv .scene{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
 .hv .floor{position:absolute;left:-240px;top:470px;width:1120px;height:700px;transform:translateZ(-110px) rotateX(82deg);transform-origin:50% 0;background:repeating-linear-gradient(90deg,rgba(226,67,61,.36) 0 1px,transparent 1px 48px),repeating-linear-gradient(0deg,rgba(226,67,61,.36) 0 1px,transparent 1px 48px);-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 30%,#000 10%,transparent 72%);mask-image:radial-gradient(ellipse 50% 50% at 50% 30%,#000 10%,transparent 72%);animation:hvflow 6s linear infinite}
 @keyframes hvflow{to{background-position:0 48px,0 48px}}
-.hv .pn{position:absolute;background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:9px;box-shadow:0 24px 44px rgba(0,0,0,.55);overflow:hidden;margin:0}
+.hv .pn{position:absolute;background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:9px;box-shadow:0 20px 38px rgba(0,0,0,.3);overflow:hidden;margin:0}
 .hv .bar{display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1px solid var(--line);font:500 10.5px var(--hvmono);color:var(--mute);background:none;height:auto}
 .hv .bar i{width:8px;height:8px;border-radius:50%;background:#3b3636;display:block}.hv .bar i:first-child{background:var(--red)}
 .hv .bar span{margin-left:6px;display:inline;color:inherit}
