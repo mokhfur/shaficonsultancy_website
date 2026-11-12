@@ -322,3 +322,13 @@ p:has(>a.bk){margin-bottom:18px}
 @media(hover:hover) and (pointer:fine){.fq summary:hover{color:var(--red)}}
 @media(prefers-reduced-motion:reduce){.fq summary::after{transition:none}}
 @media(max-width:700px){.fqs{padding:48px 0}.fq summary{font-size:1.02rem}}
+
+.bkrow{display:flex;justify-content:space-between;align-items:center;gap:14px 24px;flex-wrap:wrap;margin-bottom:18px}
+.shr{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.shl{font-size:.9rem;font-weight:500;color:var(--mid);margin-right:2px}
+.shr a,.shr button{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--ink);background:none;cursor:pointer;padding:0;transition:background-color .15s ease,border-color .15s ease,color .15s ease}
+.shr svg{width:18px;height:18px;fill:currentColor}.shr svg.st{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.shr a:focus-visible,.shr button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.shm{font-size:.85rem;color:var(--red);min-width:78px}
+@media(hover:hover) and (pointer:fine){.shr a:hover,.shr button:hover{background:var(--red);border-color:var(--red);color:#fff}}
+@media(max-width:560px){.shr{justify-content:flex-start}.shm{min-width:0}}
