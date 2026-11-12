@@ -802,7 +802,7 @@ var P=[{"s": "automation-and-ai-in-clinical-trial-reporting-verisian-community-p
 P.sort(function(a,b){return a.d<b.d?1:-1});
 var M=['January','February','March','April','May','June','July','August','September','October','November','December'];
 function fd(d){var x=d.split('-');return +x[2]+' '+M[+x[1]-1]+' '+x[0]}
-document.getElementById('bll').innerHTML=P.map(function(p){return `<a class='bc' href='#post-${p.s}'><img src='${p.img}' alt=''><div><span class='dt'>${fd(p.d)}</span><h3>${p.t}</h3><p>${p.e||p.b[0]}</p><span class='rm'>Read more</span></div></a>`}).join('');
+document.getElementById('bll').innerHTML=P.map(function(p){return `<a class='bc' href='#post-${p.s}'><img src='${p.img}' alt=''><div><span class='dt'>${fd(p.d)}</span><h3>${p.t}</h3><p>${p.e||p.b[0]}</p><span class='rm'>Read full blog</span></div></a>`}).join('');
 return {post:function(s){var p=P.filter(function(x){return x.s===s})[0];if(!p)return null;
 document.getElementById('bpt').textContent=p.t;document.getElementById('bpm').textContent=fd(p.d)+', by '+p.a;document.getElementById('bpi').src=p.img;document.getElementById('bpi').style.display=p.nh?'none':'';document.querySelector('.ah').style.gridTemplateColumns=p.nh?'1fr':'';
 document.getElementById('bpa').innerHTML=p.b.map(function(x){return /^<(h[34]|figure|ul|div)/.test(x)?x:'<p>'+x+'</p>'}).join('')+(p.v?`<video class='pv' controls playsinline preload='metadata' poster='${p.img}' src='${p.v}'></video>`:'')+`<div class='chips'>${p.tags.map(function(t){return '<span>#'+t+'</span>'}).join('')}</div>`;
