@@ -334,4 +334,4 @@ p:has(>a.bk){margin-bottom:18px}
 @media(max-width:560px){.shr{justify-content:flex-start}.shm{right:auto;left:0}}
 .ctarow{display:flex;justify-content:space-between;align-items:center;gap:16px 24px;flex-wrap:wrap;margin-top:34px}.ctarow .cta{margin-top:0}
 
-.h3d{position:relative;aspect-ratio:1.09/1;width:100%;border-radius:6px;overflow:hidden;border:1px solid #1d2638;background:radial-gradient(120% 90% at 50% 40%,#151d30 0%,#0b0f19 70%);touch-action:pan-y}.h3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block}.h3d .h3f{position:absolute;left:50%;top:50%;height:56px;transform:translate(-50%,-50%);opacity:.9}.h3d.on .h3f{display:none}@media(max-width:940px){.h3d{aspect-ratio:1.3/1}}
+.h3d{position:relative;aspect-ratio:1.09/1;width:100%;border-radius:6px;overflow:hidden;border:1px solid var(--line);background:var(--alt);touch-action:pan-y}.h3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block}.h3d .h3f{position:absolute;left:50%;top:50%;height:56px;transform:translate(-50%,-50%);opacity:.9}.h3d.on .h3f{display:none}@media(max-width:940px){.h3d{aspect-ratio:1.3/1}}
