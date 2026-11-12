@@ -91,7 +91,6 @@ function init(canvas){
   function resize(){var w=box.clientWidth,h=box.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.position.z=w/h<.8?7.4/(w/h)*.8:7.4;camera.updateProjectionMatrix()}
   function onSize(){align();resize()}
   onSize();if(window.ResizeObserver){new ResizeObserver(onSize).observe(box);if(hg)new ResizeObserver(align).observe(hg)}else window.addEventListener('resize',onSize);
-  var hint=document.createElement('span');hint.className='h3h';hint.textContent='Move or drag to tilt';box.appendChild(hint);
   var rb2=document.createElement('button');rb2.type='button';rb2.className='h3r';rb2.setAttribute('aria-label','Replay animation');rb2.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Replay';box.appendChild(rb2);
   var start=performance.now(),FINAL=5.6,running=false,raf=0,vis=true;
   box.addEventListener('pointermove',function(e){var r=box.getBoundingClientRect();mouse.tx=(e.clientX-r.left)/r.width*2-1;mouse.ty=-((e.clientY-r.top)/r.height*2-1);

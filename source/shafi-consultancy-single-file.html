@@ -247,7 +247,7 @@ nav#mnav .sub a{font-size:.98rem;color:var(--mid)!important;padding:12px 0;white
 .shr{position:relative}.shm{font-size:.85rem;color:var(--red);position:absolute;right:0;top:calc(100% + 4px);white-space:nowrap}
 @media(hover:hover) and (pointer:fine){.shr a:hover,.shr button:hover{background:var(--red);border-color:var(--red);color:#fff}}
 @media(max-width:560px){.shr{justify-content:flex-start}.shm{right:auto;left:0}}
-.ctarow{display:flex;justify-content:space-between;align-items:center;gap:16px 24px;flex-wrap:wrap;margin-top:34px}.ctarow .cta{margin-top:0}.h3d{position:relative;aspect-ratio:1.09/1;width:100%;border-radius:6px;overflow:hidden;border:1px solid var(--line);background:var(--alt);touch-action:pan-y}.h3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block}.h3d .h3f{position:absolute;left:50%;top:50%;height:56px;transform:translate(-50%,-50%);opacity:.9}.h3d.on .h3f{display:none}@media(max-width:940px){.h3d{aspect-ratio:1.3/1}}
+.ctarow{display:flex;justify-content:space-between;align-items:center;gap:16px 24px;flex-wrap:wrap;margin-top:34px}.ctarow .cta{margin-top:0}.h3d{position:relative;aspect-ratio:1.09/1;width:100%;border-radius:6px;overflow:hidden;border:1px solid var(--line);background:#fff;touch-action:pan-y}.h3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block}.h3d .h3f{position:absolute;left:50%;top:50%;height:56px;transform:translate(-50%,-50%);opacity:.9}.h3d.on .h3f{display:none}@media(max-width:940px){.h3d{aspect-ratio:1.3/1}}
 .h3d .h3h{position:absolute;left:16px;bottom:14px;font:500 11px/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;color:#8d939e;pointer-events:none}.h3d .h3r{position:absolute;right:14px;bottom:10px;display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 14px;border-radius:8px;border:1px solid var(--line);background:rgba(255,255,255,.7);color:var(--ink);font:500 13px var(--sans);cursor:pointer}.h3d .h3r svg{width:15px;height:15px}@media(hover:hover) and (pointer:fine){.h3d .h3r:hover{border-color:var(--red)}}.h3d .h3r:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 </style>
 </head>
@@ -1594,7 +1594,6 @@ function init(canvas){
   function resize(){var w=box.clientWidth,h=box.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.position.z=w/h<.8?7.4/(w/h)*.8:7.4;camera.updateProjectionMatrix()}
   function onSize(){align();resize()}
   onSize();if(window.ResizeObserver){new ResizeObserver(onSize).observe(box);if(hg)new ResizeObserver(align).observe(hg)}else window.addEventListener('resize',onSize);
-  var hint=document.createElement('span');hint.className='h3h';hint.textContent='Move or drag to tilt';box.appendChild(hint);
   var rb2=document.createElement('button');rb2.type='button';rb2.className='h3r';rb2.setAttribute('aria-label','Replay animation');rb2.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Replay';box.appendChild(rb2);
   var start=performance.now(),FINAL=5.6,running=false,raf=0,vis=true;
   box.addEventListener('pointermove',function(e){var r=box.getBoundingClientRect();mouse.tx=(e.clientX-r.left)/r.width*2-1;mouse.ty=-((e.clientY-r.top)/r.height*2-1);
