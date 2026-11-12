@@ -1641,7 +1641,7 @@ function init(canvas){
   var sprite=makeSprite();
   var N=window.innerWidth<760?60:100,R=rng(7);
   var pos=new Float32Array(N*3),col=new Float32Array(N*3),vel=new Float32Array(N*3),home=new Float32Array(N*3),ph=new Float32Array(N);
-  var BG=new THREE.Color(0xF5F4F3),pal=[new THREE.Color(0xBE1E2D),new THREE.Color(0x7d8491),new THREE.Color(0x2b2f38),new THREE.Color(0xd9808a)];
+  var LR=new THREE.Color(0xBE1E2D),BG=new THREE.Color(0xF5F4F3),pal=[new THREE.Color(0xBE1E2D),new THREE.Color(0x7d8491),new THREE.Color(0x2b2f38),new THREE.Color(0xd9808a)];
   for(var i=0;i<N;i++){var x=(R()-.5)*15,y=(R()-.5)*11,z=(R()-.5)*8-3;
     pos[i*3]=home[i*3]=x;pos[i*3+1]=home[i*3+1]=y;pos[i*3+2]=home[i*3+2]=z;
     var u=R(),c=pal[u<.42?0:u<.68?1:u<.86?2:3],b=.55+R()*.45;col[i*3]=c.r*b;col[i*3+1]=c.g*b;col[i*3+2]=c.b*b;ph[i]=R()*6.28}
@@ -1658,7 +1658,10 @@ function init(canvas){
   box.addEventListener('pointermove',function(e){var r=box.getBoundingClientRect();ndc.x=(e.clientX-r.left)/r.width*2-1;ndc.y=-((e.clientY-r.top)/r.height)*2+1},{passive:true});
   box.addEventListener('pointerleave',function(){ndc.x=0;ndc.y=0});
   function resize(){var w=box.clientWidth,h=box.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();core.scale.setScalar(clamp(w/h/1.1,.7,1))}
-  resize();if(window.ResizeObserver)new ResizeObserver(resize).observe(box);else window.addEventListener('resize',resize);
+  var hg=box.parentNode,ti=hg&&hg.querySelector('.ti');
+  function align(){if(!ti)return;if(window.innerWidth>940){hg.style.alignItems='start';box.style.marginTop=Math.max(0,Math.round(ti.getBoundingClientRect().top-hg.getBoundingClientRect().top))+'px'}else{hg.style.alignItems='';box.style.marginTop=''}}
+  function onSize(){align();resize()}
+  onSize();if(window.ResizeObserver){new ResizeObserver(onSize).observe(box);if(hg)new ResizeObserver(align).observe(hg)}else window.addEventListener('resize',onSize);
   function frame(now){
     var t=now*.001;
     for(var i=0;i<N;i++){var ix=i*3,hx=home[ix]+Math.sin(t*.2+ph[i])*.6,hy=home[ix+1]+Math.cos(t*.17+ph[i]*1.3)*.6;
@@ -1670,7 +1673,7 @@ function init(canvas){
       for(var b=a+1;b<N&&n<MAXL;b++){var ex=pos[b*3]-ax,ey=pos[b*3+1]-ay,ez=pos[b*3+2]-az,d2=ex*ex+ey*ey+ez*ez;
         if(d2<D2){var al=1-Math.sqrt(d2)/D;al*=al*.9;var o=n*6;
           lPos[o]=ax;lPos[o+1]=ay;lPos[o+2]=az;lPos[o+3]=pos[b*3];lPos[o+4]=pos[b*3+1];lPos[o+5]=pos[b*3+2];
-          var na=1-al;lCol[o]=BG.r*na+col[a*3]*al;lCol[o+1]=BG.g*na+col[a*3+1]*al;lCol[o+2]=BG.b*na+col[a*3+2]*al;lCol[o+3]=BG.r*na+col[b*3]*al;lCol[o+4]=BG.g*na+col[b*3+1]*al;lCol[o+5]=BG.b*na+col[b*3+2]*al;n++}}}
+          var na=1-al,cr=BG.r*na+LR.r*al,cg=BG.g*na+LR.g*al,cb=BG.b*na+LR.b*al;lCol[o]=cr;lCol[o+1]=cg;lCol[o+2]=cb;lCol[o+3]=cr;lCol[o+4]=cg;lCol[o+5]=cb;n++}}}
     lGeo.setDrawRange(0,n*2);lpA.needsUpdate=true;lcA.needsUpdate=true;
     emx+=(ndc.x-emx)*.06;emy+=(ndc.y-emy)*.06;
     emb.update(RM?6:(performance.now()-start)/1000,1,emx,emy);
