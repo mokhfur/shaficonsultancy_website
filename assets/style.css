@@ -337,3 +337,18 @@ p:has(>a.bk){margin-bottom:18px}
 .h3d{position:relative;aspect-ratio:1.09/1;width:100%;border-radius:6px;overflow:hidden;border:1px solid var(--line);background:#fff;touch-action:pan-y}.h3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block}.h3d .h3f{position:absolute;left:50%;top:50%;height:56px;transform:translate(-50%,-50%);opacity:.9}.h3d.on .h3f{display:none}@media(max-width:940px){.h3d{aspect-ratio:1.3/1}}
 
 .h3d .h3h{position:absolute;left:16px;bottom:14px;font:500 11px/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;color:#8d939e;pointer-events:none}.h3d .h3r{position:absolute;right:14px;bottom:10px;display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 14px;border-radius:8px;border:1px solid var(--line);background:rgba(255,255,255,.7);color:var(--ink);font:500 13px var(--sans);cursor:pointer}.h3d .h3r svg{width:15px;height:15px}@media(hover:hover) and (pointer:fine){.h3d .h3r:hover{border-color:var(--red)}}.h3d .h3r:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+/* ---- conference papers rendered as HTML on /publications/ (scoped to #pub) ---- */
+#pub .art h2{font:600 clamp(1.3rem,2.3vw,1.75rem)/1.35 var(--serif);color:var(--ink);margin:2.2em 0 .6em}
+#pub .art h3{font:600 1.15rem/1.4 var(--sans);color:var(--ink);margin:1.7em 0 .5em}
+#pub .art pre{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--red);border-radius:3px;padding:16px 18px;overflow-x:auto;font:400 .82rem/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre;margin:1em 0 1.6em;color:var(--ink)}
+#pub .art .lbl{font:600 .72rem/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;color:var(--mid);margin:1.6em 0 -.4em;display:block}
+#pub .art .abs{background:var(--alt);border-left:3px solid var(--red);padding:20px 24px;margin:0 0 2.2em;border-radius:3px}
+#pub .art .abs p{margin:0 0 .8em}
+#pub .art .abs p:last-child{margin-bottom:0}
+#pub .art .abs .lbl{margin:0 0 .5em}
+#pub .art .pdfbox{margin-top:3em;border-top:1px solid var(--line);padding-top:1.6em}
+#pub .art .pdfbox summary{cursor:pointer;font:600 .95rem/1 var(--sans);color:var(--red)}
+#pub .art .pdfbox object{width:100%;height:78vh;min-height:500px;border:1px solid var(--line);border-radius:4px;background:#fff;margin-top:1.1em}
+#pub .art .artcta{margin-top:2.5em}
+@media(max-width:640px){#pub .art pre{font-size:.74rem;padding:12px 14px}}
