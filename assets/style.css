@@ -347,8 +347,25 @@ p:has(>a.bk){margin-bottom:18px}
 #pub .art .abs p{margin:0 0 .8em}
 #pub .art .abs p:last-child{margin-bottom:0}
 #pub .art .abs .lbl{margin:0 0 .5em}
-#pub .art .pdfbox{margin-top:3em;border-top:1px solid var(--line);padding-top:1.6em}
-#pub .art .pdfbox summary{cursor:pointer;font:600 .95rem/1 var(--sans);color:var(--red)}
-#pub .art .pdfbox object{width:100%;height:78vh;min-height:500px;border:1px solid var(--line);border-radius:4px;background:#fff;margin-top:1.1em}
-#pub .art .artcta{margin-top:2.5em}
-@media(max-width:640px){#pub .art pre{font-size:.74rem;padding:12px 14px}}
+
+/* original-paper panel: summary + actions stay in the text column, the viewer goes full width */
+#pub .art .pdfbox{margin:3.5em 0 0;border-top:1px solid var(--line);padding-top:1.6em}
+#pub .art .pdfbox summary{cursor:pointer;font:600 1rem/1.4 var(--sans);color:var(--red);list-style:none;display:flex;align-items:center;gap:8px}
+#pub .art .pdfbox summary::-webkit-details-marker{display:none}
+#pub .art .pdfbox summary::before{content:"\25B8";display:inline-block;transition:transform .15s ease;font-size:.9em}
+#pub .art .pdfbox[open] summary::before{transform:rotate(90deg)}
+#pub .art .pdfacts{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin:1.1em 0 0}
+#pub .art .pdfacts a,#pub .art .pdfacts a:visited{text-decoration:none}
+#pub .art .pdfacts a.btn,#pub .art .pdfacts a.btn:visited{color:#fff}
+#pub .art .pdfacts a.btn.o,#pub .art .pdfacts a.btn.o:visited{color:var(--ink);background:transparent}
+#pub .art .pdfacts .pdfnote{color:var(--mid);font-size:.88rem}
+#pub .art .pdfbox object{display:block;width:min(1112px,calc(100vw - 48px));margin:1.2em 0 0 50%;transform:translateX(-50%);height:min(1000px,88vh);min-height:560px;border:1px solid var(--line);border-radius:4px;background:#fff}
+
+/* CTA: .art p a would otherwise paint the button text red and underline it */
+#pub .art .artcta{margin-top:3.5em}
+#pub .art .artcta a.btn,#pub .art .artcta a.btn:visited,#pub .art .artcta a.btn:hover{color:#fff;text-decoration:none}
+
+@media(max-width:640px){
+  #pub .art pre{font-size:.74rem;padding:12px 14px}
+  #pub .art .pdfbox object{height:70vh;min-height:420px}
+}
